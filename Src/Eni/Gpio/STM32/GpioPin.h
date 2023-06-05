@@ -14,6 +14,13 @@
 
 #define IS_ENI_GPIO_SUPPORTED (defined(STM32F1))
 
+#if !IS_ENI_GPIO_SUPPORTED
+	#if defined(ENI_HAL_INCLUDE_FILE)
+	#include ENI_HAL_INCLUDE_FILE
+	#else
+	#error "HAL include file missing declaration"
+	#endif
+#endif
 
 namespace Eni {
 
